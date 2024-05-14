@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище UchetOborudovaniaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="IstoriaVhoda">
+    <Key>
+      <PropertyRef Name="idIstoriiVhoda" />
+    </Key>
+    <Property Name="idIstoriiVhoda" Type="int" Nullable="false" />
+    <Property Name="idSotrudnika" Type="int" Nullable="false" />
+    <Property Name="dataVremaPopitkiVhoda" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="status" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Oborudovanie">
+    <Key>
+      <PropertyRef Name="idOborudovania" />
+    </Key>
+    <Property Name="idOborudovania" Type="int" Nullable="false" />
+    <Property Name="foto" Type="varbinary(max)" />
+    <Property Name="seriyniyNomer" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="naimenovanie" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="opisanie" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="nomerKabineta" Type="int" Nullable="false" />
+    <Property Name="status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="idSotrudnika" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RucovoditelyOfSotrudniki">
+    <Key>
+      <PropertyRef Name="idSvazi" />
+    </Key>
+    <Property Name="idSvazi" Type="int" Nullable="false" />
+    <Property Name="idSotrudnika" Type="int" Nullable="false" />
+    <Property Name="idRucovoditela" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sotrudniki">
+    <Key>
+      <PropertyRef Name="idSotrudnika" />
+    </Key>
+    <Property Name="idSotrudnika" Type="int" Nullable="false" />
+    <Property Name="FIO" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="login" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="rol" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="nomerTelefona" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="FK_IstoriaVhoda_Sotrudniki">
+    <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="1" />
+    <End Role="IstoriaVhoda" Type="Self.IstoriaVhoda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudniki">
+        <PropertyRef Name="idSotrudnika" />
+      </Principal>
+      <Dependent Role="IstoriaVhoda">
+        <PropertyRef Name="idSotrudnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Oborudovanie_Sotrudniki">
+    <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="1" />
+    <End Role="Oborudovanie" Type="Self.Oborudovanie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudniki">
+        <PropertyRef Name="idSotrudnika" />
+      </Principal>
+      <Dependent Role="Oborudovanie">
+        <PropertyRef Name="idSotrudnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RucovoditelyOfSotrudniki_Sotrudniki">
+    <End Role="Sotrudniki" Type="Self.Sotrudniki" Multiplicity="1" />
+    <End Role="RucovoditelyOfSotrudniki" Type="Self.RucovoditelyOfSotrudniki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudniki">
+        <PropertyRef Name="idSotrudnika" />
+      </Principal>
+      <Dependent Role="RucovoditelyOfSotrudniki">
+        <PropertyRef Name="idSotrudnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище UchetOborudovaniaModelContainer">
+    <EntitySet Name="IstoriaVhoda" EntityType="Self.IstoriaVhoda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oborudovanie" EntityType="Self.Oborudovanie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RucovoditelyOfSotrudniki" EntityType="Self.RucovoditelyOfSotrudniki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sotrudniki" EntityType="Self.Sotrudniki" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_IstoriaVhoda_Sotrudniki" Association="Self.FK_IstoriaVhoda_Sotrudniki">
+      <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+      <End Role="IstoriaVhoda" EntitySet="IstoriaVhoda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Oborudovanie_Sotrudniki" Association="Self.FK_Oborudovanie_Sotrudniki">
+      <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+      <End Role="Oborudovanie" EntitySet="Oborudovanie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RucovoditelyOfSotrudniki_Sotrudniki" Association="Self.FK_RucovoditelyOfSotrudniki_Sotrudniki">
+      <End Role="Sotrudniki" EntitySet="Sotrudniki" />
+      <End Role="RucovoditelyOfSotrudniki" EntitySet="RucovoditelyOfSotrudniki" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

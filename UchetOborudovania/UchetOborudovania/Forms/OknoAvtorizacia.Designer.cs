@@ -36,12 +36,8 @@
             this.textBoxLogin = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.buttonVhod = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.checkBoxMaska = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -115,36 +111,6 @@
             this.buttonVhod.UseVisualStyleBackColor = false;
             this.buttonVhod.Click += new System.EventHandler(this.buttonVhod_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(580, 194);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(181, 50);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Окно. Сотрудник";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(580, 260);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(181, 50);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Окно. Руководитель";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(580, 333);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(181, 50);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Окно. Администратор";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // checkBoxMaska
             // 
             this.checkBoxMaska.AutoSize = true;
@@ -165,16 +131,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(121, 113);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(580, 407);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 50);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Войти";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label5
             // 
@@ -246,11 +202,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBoxMaska);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonVhod);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxLogin);
@@ -280,11 +232,7 @@
         private System.Windows.Forms.TextBox textBoxLogin;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.Button buttonVhod;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.CheckBox checkBoxMaska;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
